@@ -1,0 +1,24 @@
+{
+  "name": "electron-architecture",
+  "version": "1.0.0",
+  "description": "Electron Architecture Prototype",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soultomind/Electron-Architecture.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/soultomind/Electron-Architecture/issues"
+  },
+  "homepage": "https://github.com/soultomind/Electron-Architecture#readme",
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
+}
