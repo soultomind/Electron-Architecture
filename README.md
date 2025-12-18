@@ -160,7 +160,7 @@ package.json 파일을 아래와 같이 수정한다.
 }
 ```
 
-운영용으로 설치 (dependencies electron)
+운영용으로 설치 (dependencies:electron)
 ```
 npm install electron
 ```
