@@ -294,6 +294,8 @@ dist
 
 ## 10. 기타
 
+pakcage.json
+
 | 종류               | 의미      | Electron 기준 예   |
 | ---------------- | ------- | --------------- |
 | dependencies     | 실행 중 필요 | React, Axios    |
