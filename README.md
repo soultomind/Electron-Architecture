@@ -119,12 +119,169 @@ node src/index.js
 
 ## 6. Electron 설치
 
+package.json 파일을 아래와 같이 수정한다.
+- Electron 이 실행되면 보여질 화면 main: "./src/main.js "값을 설정한다.   
+  
+  * 보통은 package.json 을 생성하면 index.js 로 설정되는데 Electron 시에는 main.js 로 파일 명칭
+- scripts start: "electron ." 을 추가한다.
+- dependencies electron: "^28.1.0" 추가한다.
+```
+{
+  "name": "electron-tutorial",
+  "version": "1.0.0",
+  "description": "Electron Tutorial",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soultomind/Electron-Tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/soultomind/Electron-Tutorial/issues"
+  },
+  "homepage": "https://github.com/soultomind/Electron-Tutorial#readme",
 
+  "devDependencies":{
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
 
-## 프로젝트 구조
+  "dependencies": {
+    "electron": "^28.3.3",
+    "typescript": "^5.9.3"
+  }
+}
+```
 
-ChatGPT 에게 추천받은 구조
+운영용으로 설치 (dependencies electron)
+```
+npm install electron
 ```
 
 
+개발용으로 설치 (devDependencies:electron)
 ```
+npm install --save-dev electron
+```
+
+src/main.js
+```js
+const { app, BrowserWindow } = require("electron");
+const path = require('path');
+
+let win;
+
+function createWindow() {
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
+
+  win.loadFile(path.join(__dirname, 'index.html'));
+
+  win.on("closed", () => {
+    win = null;
+  });
+}
+
+//app.on("ready", createWindow);
+app.whenReady().then(createWindow);
+
+app.on("window-all-closed", () => { // 모든 창이 닫혔을 때 발생하는 이벤트
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
+
+app.on("activate", () => { // app이 활성화될 때 발생하는 이벤트
+  if (win === null) {
+    createWindow();
+  }
+});
+```
+
+src/index.html
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electron Tutorial</title>
+</head>
+<body>
+  <h1>Hello, Electron!</h1>
+</body>
+</html>
+```
+### 프로젝트 구조
+
+```
+Electron-Tutorial/
+├─ src/
+│  ├─ index.html
+│  └─ main.js
+├─ package.json
+└─ node_modules/
+
+```
+
+## 7.npm run pack 
+package.json 파일 scripts pack:"electron-builder" 추가
+```
+{
+  "name": "electron-tutorial",
+  "version": "1.0.0",
+  "description": "Electron Tutorial",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "electron-builder",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soultomind/Electron-Tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/soultomind/Electron-Tutorial/issues"
+  },
+  "homepage": "https://github.com/soultomind/Electron-Tutorial#readme",
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
+}
+``
+
+```
+
+npm run pack 실행
+```
+npm run pack
+```
+
+설치가 완료되면 dist 디렉토리에 아래와 같은 구성으로 설치가 된다.
+```
+dist/
+├─ win-unpacked/
+├─ builder-debug.yml
+└─ builder-effective-config.yaml
+
+```
+

@@ -1,23 +1,29 @@
 {
-  "name": "electron-architecture",
+  "name": "electron-tutorial",
   "version": "1.0.0",
-  "description": "Electron Architecture Prototype",
-  "main": "index.js",
+  "description": "Electron Tutorial",
+  "main": "./src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "electron-builder",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soultomind/Electron-Architecture.git"
+    "url": "git+https://github.com/soultomind/Electron-Tutorial.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/soultomind/Electron-Architecture/issues"
+    "url": "https://github.com/soultomind/Electron-Tutorial/issues"
   },
-  "homepage": "https://github.com/soultomind/Electron-Architecture#readme",
+  "homepage": "https://github.com/soultomind/Electron-Tutorial#readme",
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
   "dependencies": {
     "typescript": "^5.9.3"
   }
