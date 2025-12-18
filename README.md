@@ -160,13 +160,13 @@ package.json 파일을 아래와 같이 수정한다.
 }
 ```
 
-운영용으로 설치 (dependencies:electron)
+운영용으로 설치 (dependencies:electron) 앱 실행시 필요한 모듈
 ```
 npm install electron
 ```
+ChatGPT 에서는 운영에는 electron 을 명시하지 않는다고한다. 따로 배포되는듯
 
-
-개발용으로 설치 (devDependencies:electron)
+개발용으로 설치 (devDependencies:electron) 개발/빌드 시 필요한 모듈
 ```
 npm install --save-dev electron
 ```
@@ -292,3 +292,10 @@ node_modules
 dist
 ```
 
+## 10. 기타
+
+| 종류               | 의미      | Electron 기준 예   |
+| ---------------- | ------- | --------------- |
+| dependencies     | 실행 중 필요 | React, Axios    |
+| devDependencies  | 개발/빌드용  | Electron, Vite  |
+| peerDependencies | 환경 요구   | React, Electron |
