@@ -282,6 +282,13 @@ dist/
 ├─ win-unpacked/
 ├─ builder-debug.yml
 └─ builder-effective-config.yaml
+```
 
+마지막으로 .gitignore 파일에 dist 도 추가한다.
+
+.gitignore
+```
+node_modules
+dist
 ```
 
