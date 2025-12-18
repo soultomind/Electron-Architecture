@@ -1,4 +1,4 @@
-# Electron Architecture
+# Electron Tutorial
 
 ## 1.Installing Chocolately
 
@@ -125,35 +125,6 @@ node src/index.js
 
 ChatGPT 에게 추천받은 구조
 ```
-electron-app/
-├─ package.json
-├─ tsconfig.json
-├─ electron.vite.config.ts (또는 webpack)
-├─ src/
-│  ├─ main/
-│  │  ├─ index.ts           # app, BrowserWindow 생성
-│  │  ├─ window.ts          # 윈도우 관련 로직
-│  │  ├─ ipc/
-│  │  │  ├─ handlers.ts     # ipcMain 핸들러 등록
-│  │  │  └─ channels.ts     # IPC 채널 상수
-│  │  └─ services/
-│  │     └─ fileService.ts  # fs, os, db 등
-│  │
-│  ├─ preload/
-│  │  ├─ index.ts           # contextBridge
-│  │  └─ api.ts             # renderer에 노출할 API
-│  │
-│  ├─ renderer/
-│  │  ├─ main.tsx           # React/Svelte/Vue entry
-│  │  ├─ App.tsx
-│  │  └─ components/
-│  │
-│  └─ shared/
-│     ├─ types/
-│     │  └─ ipc.ts          # IPC 타입 정의
-│     └─ constants.ts
-│
-├─ public/
-└─ dist/
+
 
 ```
