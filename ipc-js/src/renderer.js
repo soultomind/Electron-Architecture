@@ -1,4 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
+  const rendererTarget = "[RENDERER]";
+  function tartgetRenderConsole(text) {
+    console.log(`${rendererTarget}: ${text}`);
+  }
+
   const btnElement = document.getElementById('btnToggle');
 
   btnElement.addEventListener('click', () => {
@@ -8,5 +13,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
       }
     }));
+  });
+
+  window.electronAPI.on('cmd', (data) => {
+    tartgetRenderConsole('Receive MAIN:', data);
   });
 });

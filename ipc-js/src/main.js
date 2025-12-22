@@ -22,6 +22,8 @@ function createWindow() {
 
   ipcMain.on('cmd', (event, data)=>{
     tartgetMainConsole(JSON.stringify(data));
+
+    event.reply('cmd', JSON.stringify(data))
   })
 
   win.on("closed", () => {
