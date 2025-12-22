@@ -4,9 +4,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   send: (channel, data) => ipcRenderer.send(channel, data)
 });
 
-const renderTarget = "[RENDER]";
+const rendererTarget = "[RENDERER]";
 function tartgetRenderConsole(text) {
-  console.log(`${renderTarget}: ${text}`);
+  console.log(`${rendererTarget}: ${text}`);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
