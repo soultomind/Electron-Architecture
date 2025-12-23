@@ -3,7 +3,7 @@ const path = require('path');
 
 const mainTarget = "[MAIN]";
 function tartgetMainConsole(text) {
-  console.log(`${mainTarget}: ${text}`);
+  console.log(`${mainTarget} ${text}`);
 }
 
 let win;
