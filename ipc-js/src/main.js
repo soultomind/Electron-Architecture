@@ -20,11 +20,18 @@ function createWindow() {
 
   win.loadFile(path.join(__dirname, 'index.html'));
 
-  ipcMain.on('cmd', (event, data)=>{
-    tartgetMainConsole(JSON.stringify(data));
-
+  ipcMain.on('cmd', (event, data) => {
+    tartgetMainConsole(`ipcMain.on cmd: ${JSON.stringify(data)}`);
+    
+    //event.sender.send('cmd', JSON.stringify(data));
+    //reply 사용시 보낸 쪽으로 다시 보낸다. (event.sender.send를 래핑함)
     event.reply('cmd', JSON.stringify(data))
-  })
+  });
+
+  ipcMain.handle('cmd', async (event, payload) => {
+    tartgetMainConsole(`ipcMain.handle cmd: ${JSON.stringify(payload)}`);
+    return { success: true, payload };
+  });
 
   win.on("closed", () => {
     win = null;

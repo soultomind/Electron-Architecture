@@ -1,21 +1,21 @@
 window.addEventListener('DOMContentLoaded', () => {
   const rendererTarget = "[RENDERER]";
-  function tartgetRenderConsole(text) {
+  function tartgetRendererConsole(text) {
     console.log(`${rendererTarget}: ${text}`);
   }
 
   const btnElement = document.getElementById('btnToggle');
 
-  btnElement.addEventListener('click', () => {
+  btnElement?.addEventListener('click', () => {
     window.electronAPI.send('cmd', JSON.stringify({
       name: 'toggle', 
       data : {
-
+        message: 'Hello from Renderer Process!'
       }
     }));
   });
 
   window.electronAPI.on('cmd', (data) => {
-    tartgetRenderConsole('Receive MAIN:', data);
+    tartgetRendererConsole(`Receive [MAIN]: ${data}`);
   });
 });
