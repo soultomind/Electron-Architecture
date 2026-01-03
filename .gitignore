@@ -1,2 +1,5 @@
 /ipc/ipc-js/node_modules
 /ipc/ipc-js/dist
+
+/ipc/ipc-ts/node_modules
+/ipc/ipc-ts/dist
